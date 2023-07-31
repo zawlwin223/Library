@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
     let {migrate} = require ("./Migrator/migrate.js");
     migrate()
   }
-  default_migrate()
+  // default_migrate()
 app.listen(process.env.PORT,()=>{
     console.log(`Server is running at ${process.env.PORT}`)
 })
