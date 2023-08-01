@@ -15,6 +15,7 @@ const register = async (req,res,next)=>{
 }
 
 const login = async (req,res,next)=>{
+    // res.send("Hello World")
     let Ph_no = await DB.findOne({ph_no:req.body.ph_no});
     if(Ph_no){
         let hash_password = Ph_no.password;
