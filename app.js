@@ -12,7 +12,7 @@ app.use(cors({
     origin:"*",
 }))
 
-app.use(express.static(path.join(__dirname,"/Public")))
+app.use(express.static(path.join(__dirname,"Public")))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(file_upload());
