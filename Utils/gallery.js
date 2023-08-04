@@ -5,7 +5,7 @@ let saveSingleFile = async (req,res,next)=>{
         if(req.files.image){
             let image = req.files.image;
             let name =new Date().valueOf()+"_"+ image.name;
-            console.log(__dirname)
+            // console.log()
             let image_path = `${__dirname}/Upload/${name}`;
             console.log(image_path)
             image.mv(image_path);
