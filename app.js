@@ -5,11 +5,14 @@ const app   = express ();
 const file_upload = require ("express-fileupload");
 const mongoose = require ("mongoose");
 const cors = require ("cors");
+const path = require ("path");
+
 
 app.use(cors({
     origin:"*",
 }))
 
+app.use(express.static(path.join(__dirname,"/Utils/Upload")))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(file_upload());

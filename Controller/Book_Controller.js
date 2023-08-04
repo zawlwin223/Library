@@ -7,7 +7,7 @@ let add = async(req,res,next)=>{
     if(name){
         new Error(next("Name already Exists"));
         
-    }else{
+    }else{ 
         let result = await new DB(req.body).save();
         helper.FMSG(res,"Book Added",result)
     }

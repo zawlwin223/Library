@@ -5,10 +5,11 @@ let saveSingleFile = async (req,res,next)=>{
         if(req.files.image){
             let image = req.files.image;
             let name =new Date().valueOf()+"_"+ image.name;
-            let image_path = `./Upload/${name}`;
-            console.log(name)
+            console.log(__dirname)
+            let image_path = `${__dirname}/Upload/${name}`;
+            console.log(image_path)
             image.mv(image_path);
-            req.body.image = name;
+            req.body.image =  `${__dirname}/Upload/${name}`;
             console.log(req.body)
             next()
         }else{
@@ -22,9 +23,8 @@ let saveSingleFile = async (req,res,next)=>{
 }
 
 let delete_file =async (name)=>{
-    console.log(name)
-    console.log(__dirname)
-    let path =  `./Upload/${name}`;
+  
+    let path =  `${__dirname}/Upload/${name}`;
 
    await fs.unlink(path,(err)=>{
         console.log(err)
