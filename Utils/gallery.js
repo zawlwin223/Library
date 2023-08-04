@@ -7,7 +7,7 @@ let saveSingleFile = async (req,res,next)=>{
             let name =new Date().valueOf()+"_"+ image.name;
           
             let result= path.dirname(__dirname)
-            let image_path = path.join(result,"Public",`${name}`);
+            let image_path = path.join(result,`${name}`);
             image.mv(image_path);
             req.body.image =  `https://booklibraryapi.onrender.com/${name}`;
             next()
