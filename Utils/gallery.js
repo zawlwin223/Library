@@ -5,7 +5,7 @@ let saveSingleFile = async (req,res,next)=>{
         if(req.files.image){
             let image = req.files.image;
             let name =new Date().valueOf()+"_"+ image.name;
-            let image_path = `./Public/${name}`;
+            let image_path = `../Public/${name}`;
             console.log(image_path)
             image.mv(image_path);
             req.body.image =  `https://booklibraryapi.onrender.com/${name}`;
@@ -23,7 +23,7 @@ let saveSingleFile = async (req,res,next)=>{
 
 let delete_file =async (name)=>{
   
-    let path =  `./Public/${name}`;
+    let path =  `../Public/${name}`;
 
    await fs.unlink(path,(err)=>{
         console.log(err)
