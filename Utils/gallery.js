@@ -5,11 +5,10 @@ let saveSingleFile = async (req,res,next)=>{
         if(req.files.image){
             let image = req.files.image;
             let name =new Date().valueOf()+"_"+ image.name;
-            // console.log()
-            let image_path = `${__dirname}/Upload/${name}`;
+            let image_path = `./Public/${name}`;
             console.log(image_path)
             image.mv(image_path);
-            req.body.image =  `${__dirname}/Upload/${name}`;
+            req.body.image =  `https://booklibraryapi.onrender.com/${name}`;
             console.log(req.body)
             next()
         }else{
@@ -24,7 +23,7 @@ let saveSingleFile = async (req,res,next)=>{
 
 let delete_file =async (name)=>{
   
-    let path =  `${__dirname}/Upload/${name}`;
+    let path =  `./Public/${name}`;
 
    await fs.unlink(path,(err)=>{
         console.log(err)
