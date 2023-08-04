@@ -10,8 +10,7 @@ let saveSingleFile = async (req,res,next)=>{
             let image_path = path.join(result,"Public",`${name}`);
             image.mv(image_path);
             req.body.image =  `https://booklibraryapi.onrender.com/${name}`;
-            console.log(req.body)
-            // next()
+            next()
         }else{
             new Error(next("Need Image File"))
         }
@@ -24,9 +23,10 @@ let saveSingleFile = async (req,res,next)=>{
 
 let delete_file =async (name)=>{
   
-    let path =  `./Public/${name}`;
+    let result= path.dirname(__dirname)
+    let image_path = path.join(result,"Public",`${name}`);
 
-   await fs.unlink(path,(err)=>{
+   await fs.unlink(image_path,(err)=>{
         console.log(err)
     })
  
