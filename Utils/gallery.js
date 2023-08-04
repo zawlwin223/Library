@@ -11,7 +11,7 @@ let saveSingleFile = async (req,res,next)=>{
             console.log(image_path)
             image.mv(image_path);
             req.body.image =  `https://booklibraryapi.onrender.com/images/${name}`;
-            // next()
+            next()
         }else{
             new Error(next("Need Image File"))
         }
