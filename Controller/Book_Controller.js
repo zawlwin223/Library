@@ -31,7 +31,7 @@ let get = async (req,res,next)=>{
 let drop = async (req,res,next)=>{
     let id = await DB.findById(req.params.id);
     if(id){
-        // await DB.findByIdAndDelete(id._id);
+        await DB.findByIdAndDelete(id._id);
         let image_name =id.image;
         delete_file(image_name)
         helper.FMSG(res,"Deleted")

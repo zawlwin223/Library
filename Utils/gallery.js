@@ -27,7 +27,7 @@ let saveSingleFile = async (req,res,next)=>{
 let delete_file =async (name)=>{
   
     let result= path.dirname(__dirname)
-    let image_path = path.join(result,"Public",`${name}`);
+    let image_path = path.join(result,"Public","images",`${name}`);
 
    await fs.unlink(image_path,(err)=>{
         console.log(err)
