@@ -7,7 +7,7 @@ let saveSingleFile = async (req,res,next)=>{
             let name =new Date().valueOf()+"_"+ image.name;
           
             let result= path.dirname(__dirname)
-            let image_path = path.join(result,"images",`${name}`);
+            let image_path = path.join(result,"Public","images",`${name}`);
             console.log(image_path)
             image.mv(image_path,(err)=>{
                 console.log(err)
