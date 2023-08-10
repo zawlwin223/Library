@@ -9,6 +9,6 @@ router.get("/",Book_Controller.all);
 router.route("/:id")
 .get(Book_Controller.get)
 .delete(validate_token,validate_role,Book_Controller.drop)
-.patch(validate_token,validate_role,Book_Controller.patch)
+.patch(validate_token,validate_role,saveSingleFile,Book_Controller.patch)
 
 module.exports = router;
