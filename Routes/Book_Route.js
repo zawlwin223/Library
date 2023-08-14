@@ -11,4 +11,6 @@ router.route("/:id")
 .delete(validate_token,validate_role,Book_Controller.drop)
 .patch(validate_token,validate_role,saveSingleFile,Book_Controller.patch)
 
+router.route("/paginate/:page")
+.get(Book_Controller.paginate)
 module.exports = router;
