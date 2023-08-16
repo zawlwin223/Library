@@ -54,7 +54,8 @@ let patch = async (req,res,next)=>{
 let paginate = async (req,res,next)=>{
      req.params.page == 1 ? req.params.page = 0 : req.params.page = req.params.page-1;
     let skip_count = process.env.limit * req.params.page;
-    let result = await DB.find().limit(process.env.limit).skip(skip_count);
+    let result = await DB.find().limit(process.env.limit).skip(skip_count).populate("category author tag");
+    console.log("it works")
      helper.FMSG(res,"Pagination",result)
 }
 module.exports = {add,all,get,drop,patch,paginate}

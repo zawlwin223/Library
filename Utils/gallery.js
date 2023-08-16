@@ -1,5 +1,6 @@
 let path = require ("path");
-let fs = require ("fs")
+let fs = require ("fs");
+
 let saveSingleFile = async (req,res,next)=>{
     if(req.files){
         if(req.files.image){
@@ -23,6 +24,30 @@ let saveSingleFile = async (req,res,next)=>{
     }
     
 }
+
+
+// let savePDF = async (req,res,next)=>{
+//     if(req.files){
+//         if(req.files.pdf_url){
+//             let file = req.files.pdf_url;
+//             let name =new Date().valueOf()+"_"+ file.name;
+          
+//             let result= path.dirname(__dirname)
+//             let pdf_path = path.join(result,"Public","pdf",`${name}`);
+//             file.mv(pdf_path,(err)=>{
+//                 console.log(err)
+//             });
+//             req.body.image =  `https://booklibraryapi.onrender.com/pdf/${name}`;
+//             next()
+//         }else{
+//             new Error(next("Need Image File"))
+//         }
+       
+//     }else{
+//         new Error(next("Need Image File"))
+//     }
+    
+// }
 
 let delete_file =async (name)=>{
   
